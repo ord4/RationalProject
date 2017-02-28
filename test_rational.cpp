@@ -1,10 +1,12 @@
-// Student@zips.uakron.edu>
-//
+/*
+	Orion Davis (3003072) ord4@zips.uakron.edu
+	The University of Akron, Computer Science II, Prof. Will
+	Project 1: Rational
+*/
 #include "rational.hpp"
+
 #include <cassert>
-
 #include <iostream>
-
 #include <unistd.h>
 
 // Encapsulate all of the Rational tests.
@@ -122,13 +124,11 @@ struct Test_rational
         std::cerr << "invalid operator: " << op << '\n';
     }
 
-    // If we got to the end of the file without fatal errors,
-    // return success.
+    // If we got to the end of the file without fatal errors, return success.
     if (std::cin.eof())
       return;
 
-    // Otherwise, diagnose errors in input and exit with an error
-    // code.
+    // Otherwise, diagnose errors in input and exit with an error code.
     if (std::cin.fail())
     {
       std::cerr << "input error\n";
@@ -150,9 +150,7 @@ struct Test_rational
   }
 };
 
-
-int
-main()
+int main()
 {
   Test_rational test;
   test.run();

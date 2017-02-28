@@ -1,31 +1,26 @@
-// COPYRIGHT (C) 2017 Student Name (UANET ID ) All rights reserved.
-//
-// rational.hpp: Definition of rational class and its interace.
+/*
+	Orion Davis (3003072) ord4@zips.uakron.edu
+	The University of Akron, Computer Science II, Prof. Will
+	Project 1: Rational
+*/
+#include <iostream>
 
 #include "rational.hpp"
 
-#include <iostream>
-
-
-// -------------------------------------------------------------------------- //
 // Helper functions
-
 // Compute the GCD of two integer values using Euclid's algorithm.
-int
-gcd(int a, int b)
-{
-  while (b != 0) {
-    int t = b;
-    b = a % b;
-    a = t;
-  }
-  return a;
+int gcd(int a, int b){
+	while (b != 0){
+		int t = b;
+        b = a % b;
+        a = t;
+	}
+	return a;
 }
 
 
 // Compute the LCM of two integer values.
-int
-lcm(int a, int b)
+int lcm(int a, int b)
 {
   return (std::abs(a) / gcd(a, b)) * std::abs(b);
 }
@@ -46,14 +41,13 @@ operator<<(std::ostream& os, Rational r)
 // TODO: Make this read integer values if no '/' is given as a separator.
 // You may assume that there is no space between the numerator and the
 // slash. Hint, find and read the reference documentation for istream::peek().
-std::istream&
-operator>>(std::istream& is, Rational& r)
-{
-  int p, q;
-  char c;
-  is >> p >> c >> q;
-  if (!is)
-    return is;
+std::istream& operator>>(std::istream& is, Rational& r){
+	int p, q;
+    char c;
+    is >> p >> c >> q;
+    if (!is){
+		return is;
+	}
 
   // Require that the divider to be a '/'.
   if (c != '/') {

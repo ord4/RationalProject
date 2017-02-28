@@ -1,7 +1,8 @@
-// COPYRIGHT (C) 2017 Student Name (UANET ID ) All rights reserved.
-//
-// rational.hpp: Definition of rational class and its interace.
-
+/*
+	Orion Davis (3003072) ord4@zips.uakron.edu
+	The University of Akron, Computer Science II, Prof. Will
+	Project 1: Rational
+*/
 #ifndef RATIONAL_HPP
 #define RATIONAL_HPP
 
@@ -10,51 +11,48 @@
 #include <iostream>
 #include <stdlib.h>
 
-
 // Mathematical helper functions.
 //
-// NOTE: These are defined in rational.cpp.
+// Note: These are defined in rational.cpp.
+// What is the purpose of these helper functions?
 int gcd(int, int);
 int lcm(int, int);
 
 
 // Represents a rational number. The rational numbers are the set of
 // numbers that can be represented as the quotient of two integers.
-class Rational
-{
-  // TODO: Define the following:
-  // 1. A default constructor
-  // 2. A constructor that takes an integer value
-  // 3. A constructor that takes a pair of values
+class Rational{
+	private:
+		int numer;
+		int denom;
 
-  public:
-      // Returns the numerator.
-      int num() const { /* TODO: Implement me. */ }
+	public:
+		// Constructors
+		Rational();
+		Rational(int);
+		Rational(int, int);
 
-      // Returns the denominator
-      int den() const { /* TODO: Implement me. */ }
+		// Overloaded comparison operators will return T/F for the corresponding statement
+		bool operator==(Rational, Rational) const;
+		bool operator!=(Rational, Rational) const;
+		bool operator<(Rational, Rational) const;
+		bool operator>(Rational, Rational) const;
+		bool operator<=(Rational, Rational) const;
+		bool operator>=(Rational, Rational) const;
 
+		// Overloaded mathematical operators will perform the operations as expected
+		Rational operator+(Rational, Rational) const;
+		Rational operator-(Rational, Rational) const;
+		Rational operator*(Rational, Rational) const;
+		Rational operator/(Rational, Rational) const;
+
+		// Setter and getter functions
+		void setNumerator(int);
+		void setDenominator(int);
+		Rational getNumber();
 };
 
-
-// TODO: Implement support for
-// 1. Comparing two rational numbers for equality:
-//    - r1 == t2
-//    - r1 != r2
-// 2. Ordering rational numbers
-//    - r1 < r2
-//    - r1 > r2
-//    - r1 <= r2
-//    - r1 >= r2
-// 3. The standard arithmetic operators
-//    - r1 + r2
-//    - r1 - r2
-//    - r1 * r2
-//    - r1 / r2
-
-// These are provided for you.
-//
-// NOTE: They are defined in rational.cpp.
+// Friend functions overloading the << and >> operators
 std::ostream& operator<<(std::ostream&, Rational);
 std::istream& operator>>(std::istream&, Rational&);
 
