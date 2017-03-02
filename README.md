@@ -3,6 +3,9 @@ Orion Davis (ID: 3003072) ord4@zips.uakron.edu
 The University of Akron
 Computer Science II, Prof. Will
 
+######Introduction
+This is the first project of Computer Science II.  This program acts as a rational number calculator.  It allows the user to perform normal mathematical operations on the rational numbers through the use of overloaded operators 
+
 ######Breakdown
 - Class:
    - Default constructor that intializes the rational number to 0
@@ -18,3 +21,8 @@ Computer Science II, Prof. Will
 
 ######Questions
 1. What do the helper functions do?
+
+######To Do
+[ ] Complete helper functions
+[ ] Write cpp file functions
+[ ] Complete the two int constructor so that the fraction is reduced as much as possible
