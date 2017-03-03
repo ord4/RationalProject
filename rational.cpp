@@ -8,6 +8,7 @@
 
 // Helper functions
 // Compute the GCD of two integer values using Euclid's algorithm.
+// Can this be used in reducing a fraction?
 int gcd(int a, int b){
 	while (b != 0){
 		int t = b;
@@ -18,6 +19,7 @@ int gcd(int a, int b){
 }
 
 // Compute the LCM of two integer values.
+// Is this to be used with finding a common denominator for performing math operations
 int lcm(int a, int b){
 	return (std::abs(a) / gcd(a, b)) * std::abs(b);
 }
@@ -69,7 +71,7 @@ Rational::Rational(int n, int d){
 		std::cout << "Your denominator cannot be 0, please enter a new number (integer): ";
 		std::cin >> d;
 	}
-	// Reduce the number, if possible
+	// Reduce the number, if possible, there is a helper function for this??
 
 	// Set the number
 	setNumerator(n);
@@ -87,6 +89,7 @@ bool Rational::operator==(Rational &num1, Rational &num2) const{
 		return false;
 	}
 }
+
 bool Rational::operator!=(Rational &num1, Rational &num2) const{
 	if(num1.numer != num2.numer || num1.denom != num2.denom){
 		return true; // Meaning they are in fact NOT EQUAL
@@ -95,28 +98,65 @@ bool Rational::operator!=(Rational &num1, Rational &num2) const{
 		return false; // The numbers are in fact  EQUAL
 	}
 }
+
 bool Rational::operator<(Rational &num1, Rational &num2) const{
 	if(num1.denom > num2.denom){
 		return true;
 	}
-	else if(num1.denom == num2.denom && num1.numer < num2.denom){
+	else if(num1.denom == num2.denom && num1.numer < num2.numer){
 		return true;
 	}
 	else{
 		return false;
 	}
 }
+
 bool Rational::operator>(Rational &num1, Rational &num2) const{
-	// Is num1 greater than num2
+	if (num1.denom < num2.denom){
+		return true;
+	}
+	else if(num1.denom == num2.denom && num1.numer > num2.numer){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
+
 bool Rational::operator<=(Rational &num1, Rational &num2) const{
-	// Is num1 less than or equal to num2
+	if(num1.denom > num2.denom){
+		return true;
+	}
+	else if(num1.denom == num2.denom && num1.numer <= num2.numer){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 bool Rational::operator>=(Rational &num1, Rational &num2) const{
-	// Is num1 greater than or equal to num2
+	if (num1.denom < num2.denom){
+		return true;
+	}
+	else if(num1.denom == num2.denom && num1.numer >= num2.numer){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
-// Overloaded mathematical operators
 
+// Overloaded mathematical operators
+// Will have to find common denomiator for + and -
+Rational Rational::operator+(Rational &num1, Rational &num2) const{}
+
+Rational Rational::operator-(Rational &num1, Rational &num2) const{}
+
+Rational Rational::operator*(Rational &num1, Rational &num2) const{
+	// Multiply straight across
+}
+
+Rational Rational::operator/(Rational &num1, Rational &num2) const{}
 
 // Setter and getter functions
