@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/main.dir/rational.cpp.o CMakeFiles/main.dir/test_rational.cpp.o  -o main -rdynamic 

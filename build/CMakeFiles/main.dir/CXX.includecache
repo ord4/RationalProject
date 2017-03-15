@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/orion/Documents/code/cs2/RationalProject/rational.cpp
+iostream
+-
+rational.hpp
+/home/orion/Documents/code/cs2/RationalProject/rational.hpp
+
+/home/orion/Documents/code/cs2/RationalProject/rational.hpp
+cstdlib
+-
+iosfwd
+-
+iostream
+-
+stdlib.h
+-
+
+/home/orion/Documents/code/cs2/RationalProject/test_rational.cpp
+rational.hpp
+/home/orion/Documents/code/cs2/RationalProject/rational.hpp
+cassert
+-
+iostream
+-
+unistd.h
+-
+

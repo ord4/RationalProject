@@ -33,23 +33,22 @@ class Rational{
 		Rational(int, int);
 
 		// Overloaded comparison operators will return T/F for the corresponding statement
-		bool operator==(Rational, Rational) const;
-		bool operator!=(Rational, Rational) const;
-		bool operator<(Rational, Rational) const;
-		bool operator>(Rational, Rational) const;
-		bool operator<=(Rational, Rational) const;
-		bool operator>=(Rational, Rational) const;
+		bool operator==(const Rational&) const;
+		bool operator!=(const Rational&) const;
+		bool operator<(const Rational&) const;
+		bool operator>(const Rational&) const;
+		bool operator<=(const Rational&) const;
+		bool operator>=(const Rational&) const;
 
 		// Overloaded mathematical operators will perform the operations as expected
-		Rational operator+(Rational, Rational) const;
-		Rational operator-(Rational, Rational) const;
-		Rational operator*(Rational, Rational) const;
-		Rational operator/(Rational, Rational) const;
+		Rational operator+(const Rational&) const;
+		Rational operator-(const Rational&) const;
+		Rational operator*(const Rational&) const;
+		Rational operator/(const Rational&) const;
 
 		// Setter and getter functions
 		void setNumerator(int);
 		void setDenominator(int);
-		Rational getNumber();
 };
 
 // Friend functions overloading the << and >> operators

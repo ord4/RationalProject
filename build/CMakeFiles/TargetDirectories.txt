@@ -1,0 +1,3 @@
+/home/orion/Documents/code/cs2/RationalProject/build/CMakeFiles/rebuild_cache.dir
+/home/orion/Documents/code/cs2/RationalProject/build/CMakeFiles/edit_cache.dir
+/home/orion/Documents/code/cs2/RationalProject/build/CMakeFiles/main.dir
