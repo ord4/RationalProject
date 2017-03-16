@@ -6,15 +6,6 @@
 #include <iostream>
 #include "rational.hpp"
 
-// Setter and getter functions
-void Rational::setNumerator(int n){
-	numer = n;
-}
-
-void Rational::setDenominator(int d){
-	denom = d;
-}
-
 // Constructors
 // Default
 Rational::Rational(){
@@ -42,12 +33,22 @@ Rational::Rational(int n, int d){
 	// Set the number
 	setNumerator(n);
 	setDenominator(d);
-
 }
 
 // Overloaded operators functions
-bool Rational::operator==(Rational &num1 Rational &num2) const{
-	if(num1.numer == num2.numer && num1.denom == num2.denom){
+bool Rational::operator==(const Rational& myNum) const{
+	return if((myNum.numer == numer) && (myNum.denom == denom));
+}
+
+bool Rational::operator!=(const Rational& myNum) const{
+	return if((myNum.numer != numer) || (myNum.denom != denom));
+}
+
+bool Rational::operator<(const Rational& myNum) const{
+	if(myNum.denom > denom){
+		return true;
+	}
+	else if(myNum.denom == denom && myNum.numer < numer){
 		return true;
 	}
 	else{
@@ -55,20 +56,11 @@ bool Rational::operator==(Rational &num1 Rational &num2) const{
 	}
 }
 
-bool Rational::operator!=(Rational &num1, Rational &num2) const{
-	if(num1.numer != num2.numer || num1.denom != num2.denom){
-		return true; // Meaning they are in fact NOT EQUAL
-	}
-	else{
-		return false; // The numbers are in fact  EQUAL
-	}
-}
-
-bool Rational::operator<(Rational &num1, Rational &num2) const{
-	if(num1.denom > num2.denom){
+bool Rational::operator>(const Rational& myNum) const{
+	if (myNum.denom < denom){
 		return true;
 	}
-	else if(num1.denom == num2.denom && num1.numer < num2.numer){
+	else if(myNum.denom == denom && myNum.numer > numer){
 		return true;
 	}
 	else{
@@ -76,29 +68,18 @@ bool Rational::operator<(Rational &num1, Rational &num2) const{
 	}
 }
 
-bool Rational::operator>(Rational &num1, Rational &num2) const{
-	if (num1.denom < num2.denom){
+bool Rational::operator<=(const Rational& myNum) const{
+	if(myNum.denom > denom){
 		return true;
 	}
-	else if(num1.denom == num2.denom && num1.numer > num2.numer){
-		return true;
-	}
-	else{
-		return false;
-	}
-}
-
-bool Rational::operator<=(Rational &num1, Rational &num2) const{
-	if(num1.denom > num2.denom){
-		return true;
-	}
-	else if(num1.denom == num2.denom && num1.numer <= num2.numer){
+	else if(myNum.denom == denom && myNum.numer <= numer){
 		return true;
 	}
 	else{
 		return false;
 	}
 }
+// RESUME FIXING HERE!!!
 bool Rational::operator>=(Rational &num1, Rational &num2) const{
 	if (num1.denom < num2.denom){
 		return true;
@@ -204,4 +185,13 @@ std::istream& operator>>(std::istream& is, Rational& r){
 	}
 	r = Rational(p, q);
 	return is;
+}
+
+// Setter and getter functions
+void Rational::setNumerator(int n){
+	numer = n;
+}
+
+void Rational::setDenominator(int d){
+	denom = d;
 }

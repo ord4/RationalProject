@@ -3,11 +3,11 @@
 	The University of Akron, Computer Science II, Prof. Will
 	Project 1: Rational
 */
-#include "rational.hpp"
-
 #include <cassert>
 #include <iostream>
 #include <unistd.h>
+
+#include "rational.hpp"
 
 // Encapsulate all of the Rational tests.
 struct Test_rational
