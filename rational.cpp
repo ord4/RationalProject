@@ -39,130 +39,134 @@ Rational::Rational(int n, int d){
 // PRE:  Two numbers of either type rational or double *
 // POST: Boolean if the two passed numbers are equal   *
 //******************************************************
-bool Rational::operator==(Rational left, Rational right){
-	return((left.numer / left.denom) == (right.numer / right.denom));
+bool operator==(Rational left, Rational right){
+	return((left.getNumer() / left.getDenom()) == (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator==(double left, Rational right){
-	return(left == (right.numer / right.denom));
+bool operator==(double left, Rational right){
+	return(left == (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator==(Rational left, double right){
-	return((left.numer / left.denom) == right);
+bool operator==(Rational left, double right){
+	return((left.getNumer() / left.getDenom()) == right);
 }
 
 //********************************************************
 // PRE:  Two numbers of either type rational or double   *
 // POST: Boolean if the two passed numbers are not equal *
 //********************************************************
-bool Rational::operator!=(Rational left, Rational right){
-	return((left.numer / left.denom) != (right.numer / right.denom));
+bool operator!=(Rational left, Rational right){
+	return((left.getNumer() / left.getDenom()) != (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator!=(double left, Rational right){
-	return(left != (right.numer / right.denom));
+bool operator!=(double left, Rational right){
+	return(left != (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator!=(Rational left, double right){
-	return((left.numer / left.denom) != right);
+bool operator!=(Rational left, double right){
+	return((left.getNumer() / left.getDenom()) != right);
 }
 
 //******************************************************
 // PRE:  Two numbers of either type rational or double *
 // POST: Boolean if the left is less than the right    *
 //******************************************************
-bool Rational::operator<( Rational left,  Rational right) {
-	return((left.numer / left.denom) < (right.numer / right.denom));
+bool operator<( Rational left,  Rational right) {
+	return((left.getNumer() / left.getDenom()) < (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator<( Rational left,  double right) {
-	return((left.numer / left.denom) < right);
+bool operator<( Rational left,  double right) {
+	return((left.getNumer() / left.getDenom()) < right);
 }
-bool Rational::operator<( double left,  Rational right) {
-	return(left < (right.numer / right.denom));
+bool operator<( double left,  Rational right) {
+	return(left < (right.getNumer() / right.getDenom()));
 }
 
 //******************************************************
 // PRE:  Two numbers of either type rational or double *
 // POST: Boolean if the left is greater than the right *
 //******************************************************
-bool Rational::operator>( Rational left,  Rational right) {
-	return((left.numer / left.denom) > (right.numer / right.denom));
+bool operator>( Rational left,  Rational right) {
+	return((left.getNumer() / left.getDenom()) > (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator>( Rational left,  double right) {
-	return((left.numer / left.denom) > right);
+bool operator>( Rational left,  double right) {
+	return((left.getNumer() / left.getDenom()) > right);
 }
-bool Rational::operator>( double left,  Rational right) {
-	return(left > (right.numer / right.denom));
+bool operator>( double left,  Rational right) {
+	return(left > (right.getNumer() / right.getDenom()));
 }
 
 //******************************************************
 // PRE:  Two numbers of either type rational or double *
 // POST: Boolean if the left is less than or equal to  *
 //******************************************************
-bool Rational::operator<=( Rational left,  Rational right) {
-	return((left.numer / left.denom) <= (right.numer / right.denom));
+bool operator<=( Rational left,  Rational right) {
+	return((left.getNumer() / left.getDenom()) <= (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator<=( Rational left,  double right) {
-	return((left.numer / left.denom) <= right);
+bool operator<=( Rational left,  double right) {
+	return((left.getNumer() / left.getDenom()) <= right);
 }
-bool Rational::operator<=( double left,  Rational right) {
-	return(left <= (right.numer / right.denom));
+bool operator<=( double left,  Rational right) {
+	return(left <= (right.getNumer() / right.getDenom()));
 }
 
 //********************************************************
 // PRE:  Two numbers of either type rational or double   *
 // POST: Boolean if the left is greater than or equal to *
 //********************************************************
-bool Rational::operator>=( Rational left,  Rational right) {
-	return((left.numer / left.denom) >= (right.numer / right.denom));
+bool operator>=( Rational left,  Rational right) {
+	return((left.getNumer() / left.getDenom()) >= (right.getNumer() / right.getDenom()));
 }
-bool Rational::operator>=( Rational left,  double right) {
-	return((left.numer / left.denom) >= right);
+bool operator>=( Rational left,  double right) {
+	return((left.getNumer() / left.getDenom()) >= right);
 }
-bool Rational::operator>=( double left,  Rational right) {
-	return(left >= (right.numer / right.denom));
+bool operator>=( double left,  Rational right) {
+	return(left >= (right.getNumer() / right.getDenom()));
 }
 
 // Overloaded mathematical operators
-Rational Rational::operator+(Rational num1, Rational num2) {
-	// If denominators are equal no need to find commone one
-	if(num1.denom == num2.denom){
+Rational operator+(Rational num1, Rational num2) {
+	// If getDenom()inators are equal no need to find commone one
+	if(num1.getDenom() == num2.getDenom()){
 		// See if this can be simplified
-		return Rational((num1.numer + num2.numer), num1.denom);
+		return Rational((num1.getNumer() + num2.getNumer()), num1.getDenom());
 	}
 	else{
-		// Get commong denominator
-		int commonMult = lcm(num1.denom, num2.denom);
+		// Get commong getDenom()inator
+		int commonMult = lcm(num1.getDenom(), num2.getDenom());
 
-		num1.numer *= commonMult;
-		num1.denom *= commonMult;
-		num2.numer *= commonMult;
-		num2.denom *= commonMult;
+		num1.setNumerator(num1.getNumer() * commonMult);
+		num2.setNumerator(num1.getNumer() * commonMult);
+		num1.setDenominator(num1.getDenom() * commonMult);
+		num2.setDenominator(num1.getDenom() * commonMult);
 
-		return Rational((num1.numer + num2.numer), num1.denom);
+		return Rational((num1.getNumer() + num2.getNumer()), num1.getDenom());
 	}
 }
+Rational operator+(double left, Rational right){
+	return();
+}
 
-Rational Rational::operator-(Rational num1, Rational num2) {
-	// If denominators are equal no need to find commone one
-	if(num1.denom == num2.denom){
-		return Rational((num1.numer - num2.numer), num1.denom);
+
+Rational operator-(Rational num1, Rational num2) {
+	// If getDenom()inators are equal no need to find commone one
+	if(num1.getDenom() == num2.getDenom()){
+		return Rational((num1.getNumer() - num2.getNumer()), num1.getDenom());
 	}
 	else{
-		// Get common denominator
-		int commonMult = lcm(num1.denom, num2.denom);
+		// Get common getDenom()inator
+		int commonMult = lcm(num1.getDenom(), num2.getDenom());
 
-		num1.numer *= commonMult;
-		num1.denom *= commonMult;
-		num2.numer *= commonMult;
-		num2.denom *= commonMult;
+		num1.setNumerator(num1.getNumer() * commonMult);
+		num2.setNumerator(num1.getNumer() * commonMult);
+		num1.setDenominator(num1.getDenom() * commonMult);
+		num2.setDenominator(num1.getDenom() * commonMult);
 
-		return Rational((num1.numer - num2.numer), num1.denom);
+		return Rational((num1.getNumer() - num2.getNumer()), num1.getDenom());
 	}
 }
 
-Rational Rational::operator*(Rational num1, Rational num2) {
-	return Rational((num1.numer * num2.numer), (num1.denom * num2.denom));
+Rational operator*(Rational num1, Rational num2) {
+	return Rational((num1.getNumer() * num2.getNumer()), (num1.getDenom() * num2.getDenom()));
 }
 
-Rational Rational::operator/(Rational num1, Rational num2) {
-	return Rational((num1.numer * num2.denom), (num1.denom * num2.numer));
+Rational operator/(Rational num1, Rational num2) {
+	return Rational((num1.getNumer() * num2.getDenom()), (num1.getDenom() * num2.getNumer()));
 }
 
 
