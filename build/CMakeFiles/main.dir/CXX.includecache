@@ -23,12 +23,12 @@ stdlib.h
 -
 
 /home/orion/Documents/code/cs2/RationalProject/test_rational.cpp
-rational.hpp
-/home/orion/Documents/code/cs2/RationalProject/rational.hpp
 cassert
 -
 iostream
 -
 unistd.h
 -
+rational.hpp
+/home/orion/Documents/code/cs2/RationalProject/rational.hpp
 

@@ -32,24 +32,45 @@ class Rational{
 		Rational(int);
 		Rational(int, int);
 
-		// Overloaded comparison operators will return T/F for the corresponding statement
-		bool operator==(const Rational&) const;
-		bool operator!=(const Rational&) const;
-		bool operator<(const Rational&) const;
-		bool operator>(const Rational&) const;
-		bool operator<=(const Rational&) const;
-		bool operator>=(const Rational&) const;
-
-		// Overloaded mathematical operators will perform the operations as expected
-		Rational operator+(const Rational&) const;
-		Rational operator-(const Rational&) const;
-		Rational operator*(const Rational&) const;
-		Rational operator/(const Rational&) const;
 
 		// Setter and getter functions
 		void setNumerator(int);
 		void setDenominator(int);
+		int getNumer();
+		int getDenom();
 };
+
+// Overloaded comparison operators will return T/F for the corresponding statement
+// Have to have 3 for each operator to allow constants on either side
+bool operator==(const Rational&, const Rational&);
+bool operator==(const double&, const Rational&);
+bool operator==(const Rational&, const double&);
+
+bool operator!=(const Rational&, const Rational&);
+bool operator!=(const double&, const Rational&);
+bool operator!=(const Rational&, const double&);
+
+bool operator<(const Rational&, const Rational&);
+bool operator<(const double&, const Rational&);
+bool operator<(const Rational&, const double&);
+
+bool operator>(const Rational&, const Rational&);
+bool operator>(const double&, const Rational&);
+bool operator>(const Rational&, const double&);
+
+bool operator<=(const Rational&, const Rational&);
+bool operator<=(const double&, const Rational&);
+bool operator<=(const Rational&, const double&);
+
+bool operator>=(const Rational&, const Rational&);
+bool operator>=(const double&, const Rational&);
+bool operator>=(const Rational&, const double&);
+
+// Overloaded mathematical operators will perform the operations as expected
+Rational operator+(const Rational&);
+Rational operator-(const Rational&);
+Rational operator*(const Rational&);
+Rational operator/(const Rational&);
 
 // Friend functions overloading the << and >> operators
 std::ostream& operator<<(std::ostream&, Rational);

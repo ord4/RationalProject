@@ -35,61 +35,88 @@ Rational::Rational(int n, int d){
 	setDenominator(d);
 }
 
-// Overloaded operators functions
-bool Rational::operator==(const Rational& myNum) const{
-	return if((myNum.numer == numer) && (myNum.denom == denom));
+//******************************************************
+// PRE:  Two numbers of either type rational or double *
+// POST: Boolean if the two passed numbers are equal   *
+//******************************************************
+bool Rational::operator==(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) == (right.numer / right.denom));
+}
+bool Rational::operator==(const double& left, const Rational& right) const{
+	return(left == (right.numer / right.denom));
+}
+bool Rational::operator==(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) == right);
 }
 
-bool Rational::operator!=(const Rational& myNum) const{
-	return if((myNum.numer != numer) || (myNum.denom != denom));
+//********************************************************
+// PRE:  Two numbers of either type rational or double   *
+// POST: Boolean if the two passed numbers are not equal *
+//********************************************************
+bool Rational::operator!=(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) != (right.numer / right.denom));
+}
+bool Rational::operator!=(const double& left, const Rational& right) const{
+	return(left != (right.numer / right.denom));
+}
+bool Rational::operator!=(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) != right);
 }
 
-bool Rational::operator<(const Rational& myNum) const{
-	if(myNum.denom > denom){
-		return true;
-	}
-	else if(myNum.denom == denom && myNum.numer < numer){
-		return true;
-	}
-	else{
-		return false;
-	}
+//******************************************************
+// PRE:  Two numbers of either type rational or double *
+// POST: Boolean if the left is less than the right    *
+//******************************************************
+bool Rational::operator<(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) < (right.numer / right.denom));
+}
+bool Rational::operator<(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) < right);
+}
+bool Rational::operator<(const double& left, const Rational& right) const{
+	return(left < (right.numer / right.denom));
 }
 
-bool Rational::operator>(const Rational& myNum) const{
-	if (myNum.denom < denom){
-		return true;
-	}
-	else if(myNum.denom == denom && myNum.numer > numer){
-		return true;
-	}
-	else{
-		return false;
-	}
+//******************************************************
+// PRE:  Two numbers of either type rational or double *
+// POST: Boolean if the left is greater than the right *
+//******************************************************
+bool Rational::operator>(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) > (right.numer / right.denom));
+}
+bool Rational::operator>(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) > right);
+}
+bool Rational::operator>(const double& left, const Rational& right) const{
+	return(left > (right.numer / right.denom));
 }
 
-bool Rational::operator<=(const Rational& myNum) const{
-	if(myNum.denom > denom){
-		return true;
-	}
-	else if(myNum.denom == denom && myNum.numer <= numer){
-		return true;
-	}
-	else{
-		return false;
-	}
+//******************************************************
+// PRE:  Two numbers of either type rational or double *
+// POST: Boolean if the left is less than or equal to  *
+//******************************************************
+bool Rational::operator<=(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) <= (right.numer / right.denom));
 }
-// RESUME FIXING HERE!!!
-bool Rational::operator>=(Rational &num1, Rational &num2) const{
-	if (num1.denom < num2.denom){
-		return true;
-	}
-	else if(num1.denom == num2.denom && num1.numer >= num2.numer){
-		return true;
-	}
-	else{
-		return false;
-	}
+bool Rational::operator<=(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) <= right);
+}
+bool Rational::operator<=(const double& left, const Rational& right) const{
+	return(left <= (right.numer / right.denom));
+}
+
+//********************************************************
+// PRE:  Two numbers of either type rational or double   *
+// POST: Boolean if the left is greater than or equal to *
+//********************************************************
+bool Rational::operator>=(const Rational& left, const Rational& right) const{
+	return((left.numer / left.denom) >= (right.numer / right.denom));
+}
+bool Rational::operator>=(const Rational& left, const double& right) const{
+	return((left.numer / left.denom) >= right);
+}
+bool Rational::operator>=(const double& left, const Rational& right) const{
+	return(left >= (right.numer / right.denom));
 }
 
 // Overloaded mathematical operators
@@ -160,7 +187,7 @@ int lcm(int a, int b){
 
 // Make this print integers when the denominator is 1.
 std::ostream& operator<<(std::ostream& os, Rational r){
-	return os << r.num() << '/' << r.den();
+	return os << r.getNumer() << '/' << r.getDenom();
 }
 
 // Make this read integer values if no '/' is given as a separator.
@@ -194,4 +221,12 @@ void Rational::setNumerator(int n){
 
 void Rational::setDenominator(int d){
 	denom = d;
+}
+
+int Rational::getNumer(){
+	return numer;
+}
+
+int Rational::getDenom(){
+	return denom;
 }
