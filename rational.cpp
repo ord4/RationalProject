@@ -139,7 +139,10 @@ Rational operator+(Rational num1, Rational num2) {
 	}
 }
 Rational operator+(double left, Rational right){
-	return();
+	return((left * right.getDenom()) + right.getNumer(), right.getDenom());
+}
+Rational operator+(Rational left, double right){
+	return((left.getNumer() + (left.getDenom() * right), left.getDenom()));
 }
 
 

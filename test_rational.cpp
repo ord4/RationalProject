@@ -48,7 +48,7 @@ struct Test_rational
     Rational r2(2, 4);
     Rational r3(1, 4);
     assert(r1 == r2);
-    std::cout << " Rational equality OL passed" << std::endl;
+    std::cout << " Rational equality OL passed" << std::endl;// Core dumps after this line
     assert(r1 != r3);
     std::cout << " Rational inequality OL passed" << std::endl;
   }
@@ -56,6 +56,7 @@ struct Test_rational
   void ordering()
   {
     Rational r1(1, 4);
+
     Rational r2(1, 2);
     assert(r1 < r2);
     std::cout << " Rational comparison LT OL passed" << std::endl;
