@@ -14,7 +14,6 @@
 // Mathematical helper functions.
 //
 // Note: These are defined in rational.cpp.
-// What is the purpose of these helper functions?
 int gcd(int, int);
 int lcm(int, int);
 
@@ -41,36 +40,45 @@ class Rational{
 };
 
 // Overloaded comparison operators will return T/F for the corresponding statement
-// Have to have 3 for each operator to allow constants on either side
-bool operator==(const Rational&, const Rational&);
-bool operator==(const double&, const Rational&);
-bool operator==(const Rational&, const double&);
+// Have to have 3 for each operator to allow  constants on either side
+bool operator==(Rational, Rational);
+bool operator==(double, Rational);
+bool operator==(Rational, double);
 
-bool operator!=(const Rational&, const Rational&);
-bool operator!=(const double&, const Rational&);
-bool operator!=(const Rational&, const double&);
+bool operator!=(Rational, Rational);
+bool operator!=(double, Rational);
+bool operator!=(Rational, double);
 
-bool operator<(const Rational&, const Rational&);
-bool operator<(const double&, const Rational&);
-bool operator<(const Rational&, const double&);
+bool operator<(Rational, Rational);
+bool operator<(double, Rational);
+bool operator<(Rational, double);
 
-bool operator>(const Rational&, const Rational&);
-bool operator>(const double&, const Rational&);
-bool operator>(const Rational&, const double&);
+bool operator>(Rational, Rational);
+bool operator>(double, Rational);
+bool operator>(Rational, double);
 
-bool operator<=(const Rational&, const Rational&);
-bool operator<=(const double&, const Rational&);
-bool operator<=(const Rational&, const double&);
+bool operator<=(Rational, Rational);
+bool operator<=(double,  Rational);
+bool operator<=(Rational, double);
 
-bool operator>=(const Rational&, const Rational&);
-bool operator>=(const double&, const Rational&);
-bool operator>=(const Rational&, const double&);
+bool operator>=(Rational, Rational);
+bool operator>=(double, Rational);
+bool operator>=(Rational, double);
 
 // Overloaded mathematical operators will perform the operations as expected
-Rational operator+(const Rational&);
-Rational operator-(const Rational&);
-Rational operator*(const Rational&);
-Rational operator/(const Rational&);
+Rational operator+(Rational, Rational);
+Rational operator+(double, Rational);
+Rational operator+(Rational, double);
+
+Rational operator-(Rational, Rational);
+Rational operator-(double, Rational);
+Rational operator-(Rational, double);
+
+Rational operator*(Rational, Rational);
+Rational operator*(double, Rational);
+Rational operator*(Rational, double);
+
+Rational operator/(Rational, Rational);
 
 // Friend functions overloading the << and >> operators
 std::ostream& operator<<(std::ostream&, Rational);
