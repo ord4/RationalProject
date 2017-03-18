@@ -117,14 +117,26 @@ struct Test_rational
 
       // FIXME: Add all of the other overlaoded operators by adding
       // cases for each of them.
-      if (op == "==")
-        std::cout << std::boolalpha << (r1 == r2) << '\n';
-      else if (op == "<")
-        std::cout << std::boolalpha << (r1 < r2) << '\n';
-      else if (op == "+")
-        std::cout << (r1 + r2) << '\n';
-      else
-        std::cerr << "invalid operator: " << op << '\n';
+	  if (op == "==")
+	  std::cout << std::boolalpha << (r1 == r2) << '\n';
+	  else if (op == "!=")
+	  std::cout << std::boolalpha << (r1 != r2) << '\n';
+	  else if (op == "<")
+	  std::cout << std::boolalpha << (r1 < r2) << '\n';
+	  else if (op == "<=")
+	  std::cout << std::boolalpha << (r1 <= r2) << '\n';
+	  else if (op == ">")
+	  std::cout << std::boolalpha << (r1 > r2) << '\n';
+	  else if (op == ">=")
+	  std::cout << std::boolalpha << (r1 >= r2) << '\n';
+	  else if (op == "+")
+	  std::cout << (r1 + r2) << '\n';
+	  else if (op == "-")
+	  std::cout << (r1 - r2) << '\n';
+	  else if (op == "*")
+	  std::cout << (r1 * r2) << '\n';
+	  else if (op == "/")
+	  std::cout << (r1 / r2) << '\n';
     }
 
     // If we got to the end of the file without fatal errors, return success.
