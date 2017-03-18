@@ -148,8 +148,6 @@ double operator/(Rational left, Rational right) {
 	return((left.getNumer() / left.getDenom()) / (right.getNumer() / right.getDenom()));
 }
 
-
-
 // Helper functions
 // Compute the GCD of two integer values using Euclid's algorithm.
 // Can this be used in reducing a fraction?

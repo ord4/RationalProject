@@ -74,7 +74,6 @@ struct Test_rational
   {
     Rational r1(1, 2);
     Rational r2(1, 4);
-	std::cout << r1+r2 << '\n';
     assert(r1 + r2 == Rational(3, 4));
     std::cout << " Rational addition passed" << std::endl;
     assert(r1 - r2 == Rational(1, 4));
