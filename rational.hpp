@@ -35,8 +35,8 @@ class Rational{
 		// Setter and getter functions
 		void setNumerator(int);
 		void setDenominator(int);
-		int getNumer();
-		int getDenom();
+		double getNumer();
+		double getDenom();
 };
 
 // Overloaded comparison operators will return T/F for the corresponding statement
@@ -66,19 +66,19 @@ bool operator>=(double, Rational);
 bool operator>=(Rational, double);
 
 // Overloaded mathematical operators will perform the operations as expected
-Rational operator+(Rational, Rational);
-Rational operator+(double, Rational);
-Rational operator+(Rational, double);
+double operator+(Rational, Rational);
+double operator+(double, Rational);
+double operator+(Rational, double);
 
-Rational operator-(Rational, Rational);
-Rational operator-(double, Rational);
-Rational operator-(Rational, double);
+double operator-(Rational, Rational);
+double operator-(double, Rational);
+double operator-(Rational, double);
 
-Rational operator*(Rational, Rational);
-Rational operator*(double, Rational);
-Rational operator*(Rational, double);
+double operator*(Rational, Rational);
+double operator*(double, Rational);
+double operator*(Rational, double);
 
-Rational operator/(Rational, Rational);
+double operator/(Rational, Rational);
 
 // Friend functions overloading the << and >> operators
 std::ostream& operator<<(std::ostream&, Rational);

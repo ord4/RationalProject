@@ -9,8 +9,8 @@
 // Constructors
 // Default
 Rational::Rational(){
-	numer = 0;
-	denom = 1;
+	numer = 0.0;
+	denom = 1.0;
 }
 
 // One integer
@@ -120,56 +120,32 @@ bool operator>=( double left,  Rational right) {
 }
 
 // Overloaded mathematical operators
-Rational operator+(Rational num1, Rational num2) {
-	// If getDenom()inators are equal no need to find commone one
-	if(num1.getDenom() == num2.getDenom()){
-		// See if this can be simplified
-		return Rational((num1.getNumer() + num2.getNumer()), num1.getDenom());
-	}
-	else{
-		// Get commong getDenom()inator
-		int commonMult = lcm(num1.getDenom(), num2.getDenom());
-
-		num1.setNumerator(num1.getNumer() * commonMult);
-		num2.setNumerator(num1.getNumer() * commonMult);
-		num1.setDenominator(num1.getDenom() * commonMult);
-		num2.setDenominator(num1.getDenom() * commonMult);
-
-		return Rational((num1.getNumer() + num2.getNumer()), num1.getDenom());
-	}
+double operator+(Rational left, Rational right) {
+	return((left.getNumer() / left.getDenom()) + (right.getNumer() / right.getDenom()));
 }
-Rational operator+(double left, Rational right){
-	return((left * right.getDenom()) + right.getNumer(), right.getDenom());
+double operator+(double left, Rational right){
+	return(left + (right.getNumer() / right.getDenom()));
 }
-Rational operator+(Rational left, double right){
-	return((left.getNumer() + (left.getDenom() * right), left.getDenom()));
+double operator+(Rational left, double right){
+	return((left.getNumer() / left.getDenom()) + right);
 }
 
-
-Rational operator-(Rational num1, Rational num2) {
-	// If getDenom()inators are equal no need to find commone one
-	if(num1.getDenom() == num2.getDenom()){
-		return Rational((num1.getNumer() - num2.getNumer()), num1.getDenom());
-	}
-	else{
-		// Get common getDenom()inator
-		int commonMult = lcm(num1.getDenom(), num2.getDenom());
-
-		num1.setNumerator(num1.getNumer() * commonMult);
-		num2.setNumerator(num1.getNumer() * commonMult);
-		num1.setDenominator(num1.getDenom() * commonMult);
-		num2.setDenominator(num1.getDenom() * commonMult);
-
-		return Rational((num1.getNumer() - num2.getNumer()), num1.getDenom());
-	}
+double operator-(Rational left, Rational right) {
+	return((left.getNumer() / left.getDenom()) - (right.getNumer() / right.getDenom()));
+}
+double operator-(double left, Rational right){
+	return(left - (right.getNumer() / right.getDenom()));
+}
+double operator-(Rational left, double right){
+	return((left.getNumer() / left.getDenom()) - right);
 }
 
-Rational operator*(Rational num1, Rational num2) {
-	return Rational((num1.getNumer() * num2.getNumer()), (num1.getDenom() * num2.getDenom()));
+double operator*(Rational left, Rational right) {
+	return((left.getNumer() / left.getDenom()) * (right.getNumer() / right.getDenom()));
 }
 
-Rational operator/(Rational num1, Rational num2) {
-	return Rational((num1.getNumer() * num2.getDenom()), (num1.getDenom() * num2.getNumer()));
+double operator/(Rational left, Rational right) {
+	return((left.getNumer() / left.getDenom()) / (right.getNumer() / right.getDenom()));
 }
 
 
@@ -230,10 +206,10 @@ void Rational::setDenominator(int d){
 	denom = d;
 }
 
-int Rational::getNumer(){
+double Rational::getNumer(){
 	return numer;
 }
 
-int Rational::getDenom(){
+double Rational::getDenom(){
 	return denom;
 }

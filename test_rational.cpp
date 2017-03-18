@@ -47,9 +47,11 @@ struct Test_rational
     Rational r1(1, 2);
     Rational r2(2, 4);
     Rational r3(1, 4);
+	//std::cout << "r1 == r2, true: " << (r1 == r2) << '\n';
     assert(r1 == r2);
     std::cout << " Rational equality OL passed" << std::endl;// Core dumps after this line
     assert(r1 != r3);
+	//std::cout << "r1 != r3, true: " << (r1 != r3) << '\n';
     std::cout << " Rational inequality OL passed" << std::endl;
   }
 
@@ -72,6 +74,7 @@ struct Test_rational
   {
     Rational r1(1, 2);
     Rational r2(1, 4);
+	std::cout << r1+r2 << '\n';
     assert(r1 + r2 == Rational(3, 4));
     std::cout << " Rational addition passed" << std::endl;
     assert(r1 - r2 == Rational(1, 4));
